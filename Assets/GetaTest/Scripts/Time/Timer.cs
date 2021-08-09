@@ -17,6 +17,8 @@ public class Timer : MonoBehaviour
    public float tiempoMostrarEnSegundos = 0F;
    private float escalaDeTiempoPausar, escalaDeTiempoInicial;
    public bool EstaPausado = false;
+   [HideInInspector]
+   public float record = 0F;
 
 
    void Start()
@@ -36,6 +38,7 @@ public class Timer : MonoBehaviour
       if(!EstaPausado){
          TiempoFrameConTiempoScale = Time.deltaTime * escalaDeTiempo;
          tiempoMostrarEnSegundos -= TiempoFrameConTiempoScale;
+         record+=TiempoFrameConTiempoScale;
          ActualizarReloj(tiempoMostrarEnSegundos);
       }
    }

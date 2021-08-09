@@ -24,6 +24,10 @@ public class LapObject : MonoBehaviour
             StartCoroutine(ChangeScene());
             timer.EstaPausado=true;
             player.isDrivable=false;
+            PlayerPrefs.SetInt("racesWon",GameManager.instance.RacesWon+1);
+            
+            if(GameManager.instance.Record==0 || GameManager.instance.Record>timer.record)
+            PlayerPrefs.SetFloat("record",timer.record);
         }
 
     }
@@ -36,7 +40,12 @@ public class LapObject : MonoBehaviour
     }
 
     IEnumerator ChangeScene(){
+        PlayerPrefs.SetInt("racesPlayed",GameManager.instance.RacesPlayed+1);
+
         yield return new WaitForSeconds(3);
+
+        GameManager.instance.GetVariables();
+
         SceneManager.ToLoadingScene("MainMenu");
     }
 }
