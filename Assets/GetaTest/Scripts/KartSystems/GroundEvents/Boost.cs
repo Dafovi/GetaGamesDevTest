@@ -24,7 +24,7 @@ public class Boost : MonoBehaviour
     }
 
     IEnumerator BoostDelay(float actAceleration){
-        float acelerationBoost=actAceleration*2;
+        float acelerationBoost=actAceleration*2.5f;
         KartController.aceleration=acelerationBoost;
 
         yield return new WaitForSeconds(2);

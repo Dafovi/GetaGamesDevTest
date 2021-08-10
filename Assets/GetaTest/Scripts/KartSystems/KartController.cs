@@ -7,14 +7,14 @@ public class KartController : MonoBehaviour
     #region Variables
 
     private float currentSteerAngle;
-    private bool isKarGrounded;
+    public bool isKarGrounded;
     private bool dntOnRoad;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float maxSteerInAngle;
     [SerializeField] public float aceleration;
     [SerializeField] private float reverseAcceleration;
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private float turn;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float maxSpeed;

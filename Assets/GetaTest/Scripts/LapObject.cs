@@ -42,7 +42,7 @@ public class LapObject : MonoBehaviour
     IEnumerator ChangeScene(){
         PlayerPrefs.SetInt("racesPlayed",GameManager.instance.RacesPlayed+1);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
 
         GameManager.instance.GetVariables();
 

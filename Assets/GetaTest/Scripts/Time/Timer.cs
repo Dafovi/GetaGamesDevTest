@@ -31,6 +31,8 @@ public class Timer : MonoBehaviour
       tiempoMostrarEnSegundos = tiempoinicial;
 
       ActualizarReloj(tiempoinicial);
+
+
    }
 
     // Update is called once per frame
