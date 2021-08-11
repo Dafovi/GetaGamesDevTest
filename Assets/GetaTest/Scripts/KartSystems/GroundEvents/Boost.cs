@@ -20,7 +20,6 @@ public class Boost : MonoBehaviour
     {
         if(other.CompareTag("KartCollider")){
             StartCoroutine(BoostDelay(KartController.aceleration));
-            KartController.checkPoint=this.transform.position;
         }
     }
 

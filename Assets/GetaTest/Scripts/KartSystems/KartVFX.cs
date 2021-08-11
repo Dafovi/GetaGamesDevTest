@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KartyVFX : MonoBehaviour
+public class KartVFX : MonoBehaviour
 {
     public TrailRenderer FRWheelDriftTrail,FLWheelDriftTrail,RRWheelDriftTrail,RLWheelDriftTrail;
     public GameObject FRWheelDriftFX,FLWheelDriftFX,RRWheelDriftFX,RLWheelDriftFX;

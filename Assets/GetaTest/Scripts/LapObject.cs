@@ -9,6 +9,8 @@ public class LapObject : MonoBehaviour
     private LoadScene SceneManager;
     public KartController player;
     public GameObject particles;
+    public GameObject LastCheckPoint;
+    private respawn respawn;
     
     void Start()
     {
@@ -16,11 +18,12 @@ public class LapObject : MonoBehaviour
         winUI.SetActive(false);
         loseUI.SetActive(false);
         SceneManager = FindObjectOfType<LoadScene>();
+        respawn = FindObjectOfType<respawn>();
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("KartCollider") && other.transform.GetComponentInParent<KartController>().checkPoint!=Vector3.zero){
+        if(other.CompareTag("KartCollider") && respawn.checkpoint==LastCheckPoint && respawn.checkpoint!=null){
             winUI.SetActive(true);
             StartCoroutine(ChangeScene());
             timer.EstaPausado=true;
