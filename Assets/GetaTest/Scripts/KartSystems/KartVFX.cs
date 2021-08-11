@@ -27,8 +27,8 @@ public class KartVFX : MonoBehaviour
     void Drift(){
         if(kartController.isDrivable){
             if(kartController.isKarGrounded) driftStatus= kartController.Input.isDrifting;
-            else driftStatus = false;
         }
+        else driftStatus = false;
 
         FLWheelDriftTrail.emitting = driftStatus;
         FRWheelDriftTrail.emitting = driftStatus;

@@ -1610,8 +1610,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330702306}
-  - component: {fileID: 330702308}
   - component: {fileID: 330702307}
+  - component: {fileID: 330702308}
   m_Layer: 6
   m_Name: KartSpawnCapsule
   m_TagString: KartCollider
@@ -1652,8 +1652,8 @@ MonoBehaviour:
   checkPointRot: {x: 0, y: 0, z: 0, w: 0}
   checkpoint: {fileID: 0}
   respawnGUI: {fileID: 6107510112840482428, guid: 9c5902f67c299354ba648e26a02d880b, type: 3}
---- !u!65 &330702308
-BoxCollider:
+--- !u!135 &330702308
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1663,8 +1663,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2159749, y: 2.0441442, z: 1.6508256}
-  m_Center: {x: -0.010783051, y: -0.10638452, z: -0.027518416}
+  m_Radius: 0.7977815
+  m_Center: {x: 0, y: -8.042599e-17, z: -0.02732674}
 --- !u!4 &339715253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445413258335159602, guid: ec453ae0c07a5494880e8b793a85784f, type: 3}
@@ -4421,8 +4421,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.081237756, y: -1e-45, z: 0, w: 0.9966948}
-  m_LocalPosition: {x: 17.958, y: 2.85, z: -3.758}
+  m_LocalRotation: {x: 0.081237786, y: 4.3968572e-16, z: -5.2719307e-17, w: 0.99669474}
+  m_LocalPosition: {x: 17.958, y: 2.9190001, z: -3.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5213,8 +5213,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144022334}
-  m_LocalRotation: {x: 0.081237756, y: -1e-45, z: -0, w: 0.9966948}
-  m_LocalPosition: {x: 17.958, y: 2.85, z: -3.758}
+  m_LocalRotation: {x: 0.081237786, y: 4.3968572e-16, z: -5.2719307e-17, w: 0.99669474}
+  m_LocalPosition: {x: 17.958, y: 2.9190001, z: -3.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407109526}
@@ -10850,10 +10850,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: a46ba4e273ba0684f90f4acc0fdf44d5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.45
-  m_Height: 2
+  m_Radius: 0.5665602
+  m_Height: 2.061108
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.004582576, y: -0.08249484, z: 0.023372363}
 --- !u!1 &1689069706846640527
 GameObject:
   m_ObjectHideFlags: 0
@@ -10868,6 +10868,7 @@ GameObject:
   - component: {fileID: 1689069706846640530}
   - component: {fileID: 1689069706846640531}
   - component: {fileID: 1689069706846640532}
+  - component: {fileID: 1689069706846640534}
   m_Layer: 2
   m_Name: KartPlayer
   m_TagString: Player
@@ -10927,7 +10928,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 32
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!114 &1689069706846640530
 MonoBehaviour:
@@ -10995,7 +10996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689069706846640527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.958, y: 0.85, z: 1.242}
+  m_LocalPosition: {x: 17.958, y: 0.919, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1979686752462157163}
@@ -11008,6 +11009,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689069706846640534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689069706846640527}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339e9d404bb69304b8b1813339bb030b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1689069706940490506
 Transform:
   m_ObjectHideFlags: 0

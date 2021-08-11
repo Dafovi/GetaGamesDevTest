@@ -39,6 +39,11 @@ public class KartController : MonoBehaviour
     #endregion
 
     void FixedUpdate(){
+        
+        //Observa si el "Kart" esta sobre una superficie "ground"
+        RaycastHit hit;
+        isKarGrounded=Physics.Raycast(transform.position, - transform.up, out hit, 1f, groundLayer);
+
         if(isDrivable){
             KartMove();
             HandleMotor();
@@ -52,11 +57,6 @@ public class KartController : MonoBehaviour
         float newRotation = Input.horizontalInput * turnSpeed * Time.deltaTime * Input.verticalInput;
         transform.Rotate(0,newRotation,0,Space.World);
 
-        //Observa si el "Kart" esta sobre una superficie "ground"
-        RaycastHit hit;
-        isKarGrounded=Physics.Raycast(transform.position, - transform.up, out hit, 1f, groundLayer);
-
-        
         //Si el "Kart" esta en el aire aplica una caida mas fuerte
         if(isKarGrounded)
         KartCenterMass.drag = groundDrag;
