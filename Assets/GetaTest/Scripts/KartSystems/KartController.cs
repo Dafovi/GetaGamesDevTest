@@ -7,7 +7,7 @@ public class KartController : MonoBehaviour
     #region Variables
 
     private float currentSteerAngle;
-    public bool isKarGrounded;
+    public bool isKarGrounded =true;
     private bool dntOnRoad;
 
     [SerializeField] private float motorForce;
@@ -22,10 +22,10 @@ public class KartController : MonoBehaviour
     [SerializeField] private float groundDrag;
     [SerializeField] private float gravityForce;
 
-    [SerializeField] private WheelCollider FrontLeftWheel;
-    [SerializeField] private WheelCollider FrontRightWheel;
-    [SerializeField] private WheelCollider RearLeftWheel;
-    [SerializeField] private WheelCollider RearRightWheel;
+    [SerializeField] public WheelCollider FrontLeftWheel;
+    [SerializeField] public WheelCollider FrontRightWheel;
+    [SerializeField] public WheelCollider RearLeftWheel;
+    [SerializeField] public WheelCollider RearRightWheel;
 
     [SerializeField] private Transform FrontLeftWheelTransform;
     [SerializeField] private Transform FrontRightWheelTransform;

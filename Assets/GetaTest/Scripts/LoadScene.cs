@@ -16,6 +16,8 @@ public class LoadScene : MonoBehaviour
     //Variables publicas
     public Text percentLoaded;
     public static LoadScene SceneManagement = null;
+    public bool isLoading;
+    public int scene;
     #endregion
 
     void Awake(){
@@ -28,6 +30,11 @@ public class LoadScene : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        scene = SceneManager.GetActiveScene().buildIndex;
+    }
+
     //Envia a la escena de carga "Loading"
     public void ToLoadingScene(string nextScene){
         SceneManager.LoadSceneAsync("Loading");
@@ -36,8 +43,17 @@ public class LoadScene : MonoBehaviour
     }
 
     void Update(){
+        
+        if(scene!=SceneManager.GetActiveScene().buildIndex){
+            isLoading=false;
+            scene=SceneManager.GetActiveScene().buildIndex;
+        }
+
         if(SceneManager.GetActiveScene().name=="Loading"){
-            loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+            if(!isLoading){
+                loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+                isLoading=true;
+            }
 
             //convertir el progreso a un valor entre 0 y 0,9
             progressValue  = Mathf.Clamp01(loadingOperation.progress / 0.9f);

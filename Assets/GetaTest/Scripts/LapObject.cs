@@ -8,6 +8,7 @@ public class LapObject : MonoBehaviour
     public GameObject winUI,loseUI;
     private LoadScene SceneManager;
     public KartController player;
+    public GameObject particles;
     
     void Start()
     {
@@ -28,6 +29,8 @@ public class LapObject : MonoBehaviour
             
             if(GameManager.instance.Record==0 || GameManager.instance.Record>timer.record)
             PlayerPrefs.SetFloat("record",timer.record);
+
+            particles.SetActive(true);
         }
 
     }
