@@ -12,6 +12,7 @@ public class KartyVFX : MonoBehaviour
     public float AirPercent;
     public GameObject JumpVFX;
     public AudioSource jumpSound;
+    public bool driftStatus;
     void Start()
     {
         kartController = GetComponentInParent<KartController>();
@@ -24,19 +25,20 @@ public class KartyVFX : MonoBehaviour
     }
 
     void Drift(){
-        bool status;
-        if(kartController.isKarGrounded) status= kartController.Input.isDrifting;
-        else status = false;
+        if(kartController.isDrivable){
+            if(kartController.isKarGrounded) driftStatus= kartController.Input.isDrifting;
+            else driftStatus = false;
+        }
 
-        FLWheelDriftTrail.emitting = status;
-        FRWheelDriftTrail.emitting = status;
-        RRWheelDriftTrail.emitting = status;
-        RLWheelDriftTrail.emitting = status;
+        FLWheelDriftTrail.emitting = driftStatus;
+        FRWheelDriftTrail.emitting = driftStatus;
+        RRWheelDriftTrail.emitting = driftStatus;
+        RLWheelDriftTrail.emitting = driftStatus;
 
-        FRWheelDriftFX.SetActive(status);
-        FLWheelDriftFX.SetActive(status);
-        RRWheelDriftFX.SetActive(status);
-        RLWheelDriftFX.SetActive(status);
+        FRWheelDriftFX.SetActive(driftStatus);
+        FLWheelDriftFX.SetActive(driftStatus);
+        RRWheelDriftFX.SetActive(driftStatus);
+        RLWheelDriftFX.SetActive(driftStatus);
     }
 
     public void jumpFXDust(){

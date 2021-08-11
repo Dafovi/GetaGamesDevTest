@@ -30,11 +30,13 @@ namespace KartGame.KartSystems
 
         KartController kartController;
         public float aceleration;
+        public Animator kart;
 
         void Awake()
         {
             kartController = GetComponentInParent<KartController>();
             aceleration=kartController.aceleration;
+            kart.enabled=true;
         }
 
         void Update()

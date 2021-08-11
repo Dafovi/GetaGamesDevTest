@@ -32,6 +32,7 @@ public class Banana : MonoBehaviour
     }
 
     IEnumerator BananaDelay(){
+        KartController.transform.GetComponent<KartyVFX>().driftStatus=true;
         GetComponent<MeshRenderer>().enabled=false;
         GetComponent<AudioSource>().Play();
         KartController.isDrivable=false;
@@ -41,6 +42,7 @@ public class Banana : MonoBehaviour
         collision=false;
         KartController.isDrivable=true;
         virtualCamera.m_YawDamping=1f;
+        KartController.transform.GetComponent<KartyVFX>().driftStatus=false;
         Destroy(gameObject);
     }
 

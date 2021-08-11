@@ -10,6 +10,10 @@ public class addTime : MonoBehaviour
     {
         timer = FindObjectOfType<Timer>();
     }
+    void Update()
+    {
+        transform.localScale = Vector3.one *(1.34f + 0.15f * Mathf.Sin(Time.time * Mathf.PI));
+    }
 
     private void OnTriggerEnter(Collider other)
     {
