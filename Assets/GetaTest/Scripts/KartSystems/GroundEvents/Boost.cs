@@ -8,6 +8,7 @@ public class Boost : MonoBehaviour
     private InputData Input;
     private KartController KartController;
     private GameObject Player;
+    public float speed =2.5f;
     void Start()
     {
         Player=GameObject.FindGameObjectWithTag("Player");
@@ -24,7 +25,7 @@ public class Boost : MonoBehaviour
     }
 
     IEnumerator BoostDelay(float actAceleration){
-        float acelerationBoost=actAceleration*2.5f;
+        float acelerationBoost=actAceleration*speed;
         KartController.aceleration=acelerationBoost;
 
         yield return new WaitForSeconds(2);

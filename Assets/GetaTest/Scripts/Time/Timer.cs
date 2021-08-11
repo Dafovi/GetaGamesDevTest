@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
    public float escalaDeTiempo = 1;
 
    private Text myText;
+   public Text tiempoTotal;
    private float TiempoFrameConTiempoScale = 0f;
    [HideInInspector]
    public float tiempoMostrarEnSegundos = 0F;
@@ -41,10 +42,11 @@ public class Timer : MonoBehaviour
          TiempoFrameConTiempoScale = Time.deltaTime * escalaDeTiempo;
          tiempoMostrarEnSegundos -= TiempoFrameConTiempoScale;
          record+=TiempoFrameConTiempoScale;
-         ActualizarReloj(tiempoMostrarEnSegundos);
+         myText.text =ActualizarReloj(tiempoMostrarEnSegundos);
+         tiempoTotal.text="Tiempo total: "+ActualizarReloj(record);
       }
    }
-   public void ActualizarReloj(float tiempoEnSegundos)
+   public string ActualizarReloj(float tiempoEnSegundos)
    {
       int minutos = 0;
       int segundos = 0;
@@ -58,7 +60,7 @@ public class Timer : MonoBehaviour
       //milisegundos = (int)tiempoEnSegundos / 1000;
 
       textoDelReloj = minutos.ToString("00") + ":" + segundos.ToString("00"); //+ ":" + milisegundos.ToString("00");
-      myText.text = textoDelReloj;
+      return textoDelReloj;
    }
 
 }

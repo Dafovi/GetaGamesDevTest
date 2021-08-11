@@ -43,6 +43,7 @@ public class LapObject : MonoBehaviour
     }
 
     IEnumerator ChangeScene(){
+        timer.gameObject.SetActive(false);
         PlayerPrefs.SetInt("racesPlayed",GameManager.instance.RacesPlayed+1);
 
         yield return new WaitForSeconds(5);
