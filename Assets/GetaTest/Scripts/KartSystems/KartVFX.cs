@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KartyVFX : MonoBehaviour
+public class KartVFX : MonoBehaviour
 {
     public TrailRenderer FRWheelDriftTrail,FLWheelDriftTrail,RRWheelDriftTrail,RLWheelDriftTrail;
     public GameObject FRWheelDriftFX,FLWheelDriftFX,RRWheelDriftFX,RLWheelDriftFX;
@@ -27,8 +27,8 @@ public class KartyVFX : MonoBehaviour
     void Drift(){
         if(kartController.isDrivable){
             if(kartController.isKarGrounded) driftStatus= kartController.Input.isDrifting;
-            else driftStatus = false;
         }
+        else driftStatus = false;
 
         FLWheelDriftTrail.emitting = driftStatus;
         FRWheelDriftTrail.emitting = driftStatus;

@@ -8,7 +8,6 @@ public class KartController : MonoBehaviour
 
     private float currentSteerAngle;
     public bool isKarGrounded =true;
-    private bool dntOnRoad;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float maxSteerInAngle;
@@ -34,14 +33,17 @@ public class KartController : MonoBehaviour
 
     public Rigidbody KartCenterMass;
     public LayerMask groundLayer;
-    public LayerMask outRoad;
     public InputData Input;
-    public Vector3 checkPoint = Vector3.zero;
     public bool isDrivable;
     
     #endregion
 
     void FixedUpdate(){
+        
+        //Observa si el "Kart" esta sobre una superficie "ground"
+        RaycastHit hit;
+        isKarGrounded=Physics.Raycast(transform.position, - transform.up, out hit, 1f, groundLayer);
+
         if(isDrivable){
             KartMove();
             HandleMotor();
@@ -55,20 +57,11 @@ public class KartController : MonoBehaviour
         float newRotation = Input.horizontalInput * turnSpeed * Time.deltaTime * Input.verticalInput;
         transform.Rotate(0,newRotation,0,Space.World);
 
-        //Observa si el "Kart" esta sobre una superficie "ground"
-        RaycastHit hit;
-        isKarGrounded=Physics.Raycast(transform.position, - transform.up, out hit, 1f, groundLayer);
-        dntOnRoad=Physics.Raycast(transform.position, - transform.up, out hit, 1f, outRoad);
-
-        
         //Si el "Kart" esta en el aire aplica una caida mas fuerte
         if(isKarGrounded)
         KartCenterMass.drag = groundDrag;
         else 
         KartCenterMass.drag = airDrag;
-
-        if(dntOnRoad && transform.position.y<0.9f && !isKarGrounded)
-        transform.position=new Vector3(checkPoint.x,checkPoint.y+0.93f,checkPoint.z);
 
         //Si el "Kart" esta sobre el suelo, se esta presionando la tecla de acelerar y no se a sobrepasado la velocidad maxima
         if(KartCenterMass.velocity.magnitude<=maxSpeed && isKarGrounded && Input.verticalInput!=0)

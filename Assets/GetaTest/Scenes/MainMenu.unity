@@ -1846,7 +1846,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Controles
+  m_Text: Instrucciones
 --- !u!222 &496467489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5372,7 +5372,7 @@ GameObject:
   - component: {fileID: 1413487257}
   - component: {fileID: 1413487256}
   m_Layer: 5
-  m_Name: ControlsButton
+  m_Name: InstructionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7431,6 +7431,7 @@ GameObject:
   - component: {fileID: 1847926151}
   - component: {fileID: 1847926150}
   - component: {fileID: 1847926149}
+  - component: {fileID: 1847926152}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -7502,10 +7503,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189253610}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: ToLoadingScene
-        m_Mode: 5
+      - m_Target: {fileID: 1847926152}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_MethodName: startGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7552,6 +7553,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847926147}
   m_CullTransparentMesh: 1
+--- !u!114 &1847926152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847926147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44abb9741cb9cf645960ebf1a875151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870977718
 GameObject:
   m_ObjectHideFlags: 0

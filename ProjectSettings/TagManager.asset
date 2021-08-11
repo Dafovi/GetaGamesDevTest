@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - KartCollider
+  - outRoad
   layers:
   - Default
   - TransparentFX
