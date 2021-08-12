@@ -21,6 +21,9 @@ public class Timer : MonoBehaviour
    [HideInInspector]
    public float record = 0F;
 
+   public Color color;
+   public AudioSource addtime;
+
 
    void Start()
    {
@@ -61,6 +64,16 @@ public class Timer : MonoBehaviour
 
       textoDelReloj = minutos.ToString("00") + ":" + segundos.ToString("00"); //+ ":" + milisegundos.ToString("00");
       return textoDelReloj;
+   }
+   public void addTime(){
+      StartCoroutine(ChangeColor());
+      addtime.Play();
+   }
+
+   IEnumerator ChangeColor(){
+      myText.color=color;
+      yield return new WaitForSeconds(0.7f);
+      myText.color=Color.white;
    }
 
 }

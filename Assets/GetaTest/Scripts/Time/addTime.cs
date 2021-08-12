@@ -19,6 +19,7 @@ public class addTime : MonoBehaviour
     {
         if(other.CompareTag("KartCollider")){
         timer.tiempoMostrarEnSegundos+=extraTime;
+        timer.addTime();
         Destroy(this.gameObject);
         }
     }
