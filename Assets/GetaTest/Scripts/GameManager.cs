@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string chasisColorHex;
     [SerializeField] private string wheelsColorHex;
     [SerializeField] private string characterColorHex;
+
+    //Extra game
+    [SerializeField] private float metersRecord;
+    [SerializeField] private int endlesRacesPlayed;
+
     //Variables publicas
     public int RacesPlayed {
         get { return racesPlayed; }
@@ -49,6 +54,16 @@ public class GameManager : MonoBehaviour
         get {return characterColor;}
     }
 
+    //Extra game
+
+    public int EndlesRacesPlayed {
+        get { return endlesRacesPlayed; }
+    }
+    public float MetersRecord {
+        get { return metersRecord; }
+    }
+
+
     public static GameManager instance = null;
     #endregion
     void Awake(){
@@ -76,6 +91,9 @@ public class GameManager : MonoBehaviour
         ColorUtility.TryParseHtmlString (wheelsColorHex, out wheelsColor);
         ColorUtility.TryParseHtmlString (characterColorHex, out characterColor);
 
+
+        endlesRacesPlayed=PlayerPrefs.GetInt("endlesRacesPlayed",0);
+        metersRecord=PlayerPrefs.GetFloat("metersRecord",0);
     }
 
     public void SetVariables(){

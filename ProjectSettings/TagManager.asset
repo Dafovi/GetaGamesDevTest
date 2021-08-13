@@ -6,6 +6,8 @@ TagManager:
   tags:
   - KartCollider
   - outRoad
+  - Obstacle
+  - jumpDust
   layers:
   - Default
   - TransparentFX

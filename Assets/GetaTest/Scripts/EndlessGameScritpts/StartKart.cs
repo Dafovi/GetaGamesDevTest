@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KartStart : MonoBehaviour
+public class StartKart : MonoBehaviour
 {
     void Start()
     {
-      KartController kartController = FindObjectOfType<KartController>();
+      PlayerController kartController = FindObjectOfType<PlayerController>();
       kartController.isDrivable=true;
     }
-
 }
