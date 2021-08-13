@@ -58,10 +58,16 @@ public class KartAnimations : MonoBehaviour
     }
     IEnumerator Delay(){
         wheelsTrails(true);
+        
+        if(Kart.isDrivable)
         driftSound.Play();
+
         yield return new WaitForSeconds(0.25f);
         horizontal=0;
         wheelsTrails(false);
+
+        
+        if(Kart.isDrivable)
         driftSound.Stop();
     }
     private void wheelRotation(Transform wheel){
