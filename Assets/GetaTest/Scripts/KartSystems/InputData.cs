@@ -8,6 +8,7 @@ public class InputData : MonoBehaviour
 
     public float horizontalInput;
     public float verticalInput;
+    [Space(10)]
     public bool isDrifting;
     public bool boost;
 

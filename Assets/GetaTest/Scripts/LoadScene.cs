@@ -7,18 +7,15 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     #region Variables
-    //Variables privadas
-    public string sceneToLoad;
+    [HideInInspector] public string sceneToLoad;
     AsyncOperation loadingOperation;
-    Slider progressBar;
-    [SerializeField]private float progressValue;
-
-    //Variables publicas
-    public Text percentLoaded;
+    private Slider progressBar;
+    private float progressValue;
+    private Text percentLoaded;
     public static LoadScene SceneManagement = null;
-    public bool isLoading;
-    public int scene;
-    public GameObject ButtonToScene;
+    private bool isLoading;
+    private int scene;
+    private GameObject ButtonToScene;
     #endregion
 
     void Awake(){
@@ -33,6 +30,7 @@ public class LoadScene : MonoBehaviour
 
     void Start()
     {
+        //Guarda el numero de la escena en la que inicia
         scene = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -44,12 +42,13 @@ public class LoadScene : MonoBehaviour
     }
 
     void Update(){
-        
+        //Si ya no se encuentra en la misma escena, actualiza el numero de la misma
         if(scene!=SceneManager.GetActiveScene().buildIndex){
             isLoading=false;
             scene=SceneManager.GetActiveScene().buildIndex;
         }
 
+        //Si estoy en la escena "Loading", carga de manera asincrónica la siguiente escena
         if(SceneManager.GetActiveScene().name=="Loading"){
             if(!isLoading){
                 ButtonToScene=GameObject.Find("DoneButton");
@@ -70,15 +69,17 @@ public class LoadScene : MonoBehaviour
                 progressBar.value = progressValue ;
             }
 
+            //Si esta cargando un modo de juego, desactiva el cambio de escena automatico
             if(sceneToLoad!="MainMenu" && !ButtonToScene.activeSelf){
                 loadingOperation.allowSceneActivation = false;
                 if(progressValue==1)ButtonToScene.SetActive(true);
             }
 
-            Debug.Log(progressValue);
+            //Debug.Log(progressValue);
         }
     }
 
+    //Envia a la siguiente escena
     public void Done(){
         loadingOperation.allowSceneActivation = true;
     }

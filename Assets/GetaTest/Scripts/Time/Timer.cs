@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+   #region  Variables
    [Tooltip("Tiempo iniciar en Segundos")]
    public int tiempoinicial =120;
    [Tooltip("Escala del Tiempo del Reloj")]
@@ -24,7 +25,7 @@ public class Timer : MonoBehaviour
    public Color color;
    public AudioSource addtime;
 
-
+   #endregion
    void Start()
    {
       //Escala de Tiempo Original

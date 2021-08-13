@@ -4,12 +4,18 @@ using UnityEngine.UI;
 
 public class RecordDistance : MonoBehaviour
 {
-    public float distance,velocity;
-    public GameObject StartLine;
-    public Transform Kart;
+    [Header("Player parameters")]
+    [SerializeField] private float velocity;
+    public float distance;
+
+    [Space(10)]
+    [SerializeField] private GameObject StartLine;
+    [SerializeField] private Text winnerText,loserText,meters;
+
+    [Space(10)]
+    [SerializeField] private Transform Kart;
     private Vector3 LineStart = new Vector3(0f,0f,8.24f);
     private PlayerController kartController;
-    public Text winnerText,loserText,meters;
 
     void Start()
     {
@@ -22,6 +28,8 @@ public class RecordDistance : MonoBehaviour
 
         if(distance>10)Destroy(StartLine);
         
+        //Segun la distancia recorrida aumenta la velocidad
+        //A mayor distancia la velocidad aumenta mas despacio
         if(distance>=100 && distance<=200)
         velocity=distance/10;
         else if(distance>=400 && distance<=600)
@@ -35,8 +43,8 @@ public class RecordDistance : MonoBehaviour
         else if(distance>=10000)
         velocity=distance/100;
 
-
         kartController.forwardSpeed=velocity;
+
         if(distance>=2.6f)
         meters.text=distance.ToString("00")+"m";
 

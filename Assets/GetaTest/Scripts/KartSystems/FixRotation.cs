@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FixRotation : MonoBehaviour
 {
-    public bool isOverturned;
+    private bool isOverturned;
     public LayerMask groundLayer;
     void Update()
     {
+        //Si el "kart" se vuelca, corrige su rotación
+
         RaycastHit hit;
         isOverturned=Physics.Raycast(transform.position, transform.up, out hit, 1f, groundLayer);
        

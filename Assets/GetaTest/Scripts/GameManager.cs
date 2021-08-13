@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    #region Variables
-    //Variables privadas
+    #region Variables privadas
+    [Header("Race against time Statistics")]
     [SerializeField] private int racesPlayed;
     [SerializeField] private int racesWon;
     [SerializeField] private float record;
+    
+    [Header("Player colors"),Space(8)]
     [SerializeField] private Color chasisColor;
     [SerializeField] private Color wheelsColor;
     [SerializeField] private Color characterColor;
+    
+    [Header("Colors HEX"),Space(6)]
     [SerializeField] private string chasisColorHex;
     [SerializeField] private string wheelsColorHex;
     [SerializeField] private string characterColorHex;
-
-    //Extra game
+    
+    [Header("Long distance race Statistics"),Space(10)]
     [SerializeField] private float metersRecord;
     [SerializeField] private int endlesRacesPlayed;
+    #endregion
 
-    //Variables publicas
+    #region Variables publicas
     public int RacesPlayed {
         get { return racesPlayed; }
     }
@@ -43,7 +48,6 @@ public class GameManager : MonoBehaviour
         get { return characterColorHex; }
         set { characterColorHex=value; }
     }
-
     public Color ChasisColor{
         get {return chasisColor;}
     }
@@ -53,9 +57,6 @@ public class GameManager : MonoBehaviour
     public Color CharacterColor{
         get {return characterColor;}
     }
-
-    //Extra game
-
     public int EndlesRacesPlayed {
         get { return endlesRacesPlayed; }
     }
@@ -75,28 +76,33 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         
-        //Load variables
+        //Traer los valores de las variables desde los PlayerPrefs
         GetVariables();  
     }
     public void GetVariables(){
+
+        //Si es la primera vez que se cargan, establece su valor en 0
         racesPlayed=PlayerPrefs.GetInt("racesPlayed",0);
         racesWon=PlayerPrefs.GetInt("racesWon",0);
         record=PlayerPrefs.GetFloat("record",0);
-        
+
+        endlesRacesPlayed=PlayerPrefs.GetInt("endlesRacesPlayed",0);
+        metersRecord=PlayerPrefs.GetFloat("metersRecord",0);
+
+        //Si es la primera vez que se cargan, toma el valor por defecto de cada color en Hexadecimal
         chasisColorHex=PlayerPrefs.GetString("chasisColorHex","#"+ColorUtility.ToHtmlStringRGBA(chasisColor));
         wheelsColorHex=PlayerPrefs.GetString("wheelsColorHex","#"+ColorUtility.ToHtmlStringRGBA(wheelsColor));
         characterColorHex=PlayerPrefs.GetString("characterColorHex","#"+ColorUtility.ToHtmlStringRGBA(characterColor));
 
+        //Establece el color desde los playerPrefs
         ColorUtility.TryParseHtmlString (chasisColorHex, out chasisColor);
         ColorUtility.TryParseHtmlString (wheelsColorHex, out wheelsColor);
         ColorUtility.TryParseHtmlString (characterColorHex, out characterColor);
 
-
-        endlesRacesPlayed=PlayerPrefs.GetInt("endlesRacesPlayed",0);
-        metersRecord=PlayerPrefs.GetFloat("metersRecord",0);
     }
 
     public void SetVariables(){
+        //Guarda el color del jugador en Hexadecimal
         PlayerPrefs.SetString("chasisColorHex",chasisColorHex);
         PlayerPrefs.SetString("wheelsColorHex",wheelsColorHex);
         PlayerPrefs.SetString("characterColorHex",characterColorHex);

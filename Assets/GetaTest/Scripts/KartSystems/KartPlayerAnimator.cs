@@ -7,7 +7,8 @@ namespace KartGame.KartSystems
     {
         public Animator PlayerAnimator;
         public KartController Kart;
-
+        
+        [Space(10)]
         public string SteeringParam = "Steering";
         public string GroundedParam = "Grounded";
 

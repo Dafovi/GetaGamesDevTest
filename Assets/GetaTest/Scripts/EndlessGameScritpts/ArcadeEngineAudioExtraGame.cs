@@ -41,14 +41,8 @@ namespace KartGame.KartSystems
 
             IdleSound.volume    = Mathf.Lerp(0.6f, 0.0f, kartSpeed * 4);
 
-            // Moving forward
-            float engine;
-            
-            /*if(aceleration<kartController.speed && kartController.isKarGrounded) engine=0.2f;
-            else */engine = 0f;
-
             RunningSound.volume = Mathf.Lerp(0.1f, RunningSoundMaxVolume, kartSpeed * 1.2f);
-            RunningSound.pitch = Mathf.Lerp(0.3f, RunningSoundMaxPitch+engine, kartSpeed + (Mathf.Sin(Time.time) * .1f));
+            RunningSound.pitch = Mathf.Lerp(0.3f, RunningSoundMaxPitch, kartSpeed + (Mathf.Sin(Time.time) * .1f));
 
             
         }

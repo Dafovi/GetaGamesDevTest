@@ -7512,7 +7512,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1465871795}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 877476377}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: ChasisColor
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1465871794}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1465871795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7950,7 +7962,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1533724365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 877476377}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: WheelsColor
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1533724364}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1533724365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8845,7 +8869,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1619908864}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 877476377}
+        m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
+        m_MethodName: CharacterColor
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1619908863}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1619908864
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,9 +6,13 @@ public class KartController : MonoBehaviour
 {
     #region Variables
 
-    private float currentSteerAngle;
+    [Header("Kart status")]
     public bool isKarGrounded =true;
+    public bool isDrivable;
+    public LayerMask groundLayer;
+    public InputData Input;
 
+    [Header("Kart Variables"),Space(10)]
     [SerializeField] private float motorForce;
     [SerializeField] private float maxSteerInAngle;
     [SerializeField] public float aceleration;
@@ -20,21 +24,23 @@ public class KartController : MonoBehaviour
     [SerializeField] private float airDrag;
     [SerializeField] private float groundDrag;
     [SerializeField] private float gravityForce;
+    [SerializeField] private float currentSteerAngle;
 
+    [Header("Wheels Colliders"),Space(10)]
     [SerializeField] public WheelCollider FrontLeftWheel;
     [SerializeField] public WheelCollider FrontRightWheel;
     [SerializeField] public WheelCollider RearLeftWheel;
     [SerializeField] public WheelCollider RearRightWheel;
 
+    [Header("Wheels Transforms"),Space(4)]
     [SerializeField] private Transform FrontLeftWheelTransform;
     [SerializeField] private Transform FrontRightWheelTransform;
     [SerializeField] private Transform RearLeftWheelTransform;
     [SerializeField] private Transform RearRightWheelTransform;
+    
 
+    [Header("Kart"),Space(10)]
     public Rigidbody KartCenterMass;
-    public LayerMask groundLayer;
-    public InputData Input;
-    public bool isDrivable;
     
     #endregion
 
@@ -107,6 +113,7 @@ public class KartController : MonoBehaviour
     }
 
     void Drift(){
+        //Establece la velocidad de giro cuando se esta derrapando
         if(KartCenterMass.velocity.magnitude>=10)
         turnSpeed = Input.isDrifting ? turn*2 : turn;
 

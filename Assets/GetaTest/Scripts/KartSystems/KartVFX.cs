@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class KartVFX : MonoBehaviour
 {
-    public TrailRenderer FRWheelDriftTrail,FLWheelDriftTrail,RRWheelDriftTrail,RLWheelDriftTrail;
-    public GameObject FRWheelDriftFX,FLWheelDriftFX,RRWheelDriftFX,RLWheelDriftFX;
-    KartController kartController;
+    #region Variables
+    [Header("Wheels Trails")]
+    public TrailRenderer FRWheelDriftTrail;
+    public TrailRenderer FLWheelDriftTrail;
+    public TrailRenderer RRWheelDriftTrail;
+    public TrailRenderer RLWheelDriftTrail;
+
+
+    [Header("Wheels Trails"),Space(10)]
+    public GameObject FRWheelDriftFX;
+    public GameObject FLWheelDriftFX;
+    public GameObject RRWheelDriftFX;
+    public GameObject RLWheelDriftFX;
+
+
+    [Header("Jump"),Space(10)]
+    public GameObject JumpVFX;
+    public AudioSource jumpSound;
+
+
+    [Header("Kart status"),Space(10)]
     public float GroundPercent;
     public float m_PreviousGroundPercent = 1.0f;
     public float AirPercent;
-    public GameObject JumpVFX;
-    public AudioSource jumpSound;
     public bool driftStatus;
+
+    KartController kartController;
+    #endregion
     void Start()
     {
         kartController = GetComponentInParent<KartController>();
@@ -25,6 +44,7 @@ public class KartVFX : MonoBehaviour
     }
 
     void Drift(){
+        //Si se esta avtivando la tecla de derrape, se activan las particulas y lineas de derrape
         if(kartController.isDrivable){
             if(kartController.isKarGrounded) driftStatus= kartController.Input.isDrifting;
         }

@@ -8,8 +8,8 @@ public class Boost : MonoBehaviour
     private InputData Input;
     private KartController KartController;
     private GameObject Player;
-    public float speed =2.5f;
-    public float aceleration;
+    [SerializeField] private float speed =2.5f;
+    [SerializeField] private float aceleration;
     void Start()
     {
         Player=GameObject.FindGameObjectWithTag("Player");
@@ -26,9 +26,11 @@ public class Boost : MonoBehaviour
     }
 
     IEnumerator BoostDelay(){
+        //Recibe la velocidad actual del "kart" sin turbo y la multiplica el aumento de velocidad
         float acelerationBoost=aceleration*speed;
         KartController.aceleration=acelerationBoost;
 
+        //Vuelve a su velocidad normal
         yield return new WaitForSeconds(2);
         KartController.aceleration=aceleration;
     }

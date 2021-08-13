@@ -8,6 +8,7 @@ public class KartColor : MonoBehaviour
     public SkinnedMeshRenderer Character;
     public MeshRenderer[] Wheels;
     void Start(){
+        //Establece los colores del "kart" segun los guardados en el "GameManager"
         Chasis.material.color=GameManager.instance.ChasisColor;
         Character.material.color=GameManager.instance.CharacterColor;
         for(int i=0; i<Wheels.Length; i++)

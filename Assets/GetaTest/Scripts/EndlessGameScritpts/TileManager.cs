@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    public GameObject[] tilePrefabs;
-    public float zSpawn = 0;
-    public float tileLength = 40;
-    public int numberOfTiles;
+    [Header("Tiles")]
+    [SerializeField] private GameObject[] tilePrefabs;
+    [SerializeField] private List<GameObject> activeTiles = new List<GameObject>();
 
-    public List<GameObject> activeTiles = new List<GameObject>();
-    public Transform playerTransform;
+    
+    [Header("Tiles positioningt"),Space(10)]
+    [SerializeField] private float zSpawn = 0;
+    [SerializeField] private float tileLength = 40;
+    [SerializeField] private int numberOfTiles;
+    
+    [Header("Player"),Space(10)]
+    [SerializeField] private Transform playerTransform;
     void Start()
     {
+        //Al iniciar crea un camino aleatorio dejando la primera parte de la pista limpia
         numberOfTiles=tilePrefabs.Length;
         SpawnTile (0);
         for(int i = 0; i < numberOfTiles; i++)
@@ -22,6 +28,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
+        //A medida que el jugador avanza va creando y borrando el camino
         if(playerTransform.position.z - 45 >zSpawn - (numberOfTiles*tileLength)){
             SpawnTile(Random.Range(02,numberOfTiles));
             DeleteTile();
