@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class StartButton : MonoBehaviour
 {
-    public void startGame(){
+    public void startGame(string scene){
         LoadScene sceneManager = FindObjectOfType<LoadScene>();
-        sceneManager.ToLoadingScene("Gameplay");
+        sceneManager.ToLoadingScene(scene);
     }
 }

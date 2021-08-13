@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject gameOverPanel,newrecordPanel,Meters;
     private PlayerController kartController;
     private LoadScene SceneManager;
+    public GameObject metersImage;
     void Start()
     {
         kartController = FindObjectOfType<PlayerController>();
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
             gameOverPanel.SetActive(true);
         
             Meters.SetActive(false);
+            metersImage.SetActive(false);
             StartCoroutine(ChangeScene());
         }
     }

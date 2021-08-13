@@ -41,7 +41,7 @@ public class RecordDistance : MonoBehaviour
         meters.text=distance.ToString("00")+"m";
 
         if(PlayerManager.gameOver){
-            loserText.text="Distancia recorrida: "+distance.ToString("00")+"m\n Récord actual: "+ GameManager.instance.MetersRecord.ToString("00");
+            loserText.text="Distancia recorrida: "+distance.ToString("00")+"m\n Récord actual: "+ GameManager.instance.MetersRecord.ToString("00")+"m";
             winnerText.text = distance.ToString("00")+"m";
         }
 

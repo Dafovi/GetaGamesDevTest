@@ -8,7 +8,7 @@ public class LoadScene : MonoBehaviour
 {
     #region Variables
     //Variables privadas
-    string sceneToLoad;
+    public string sceneToLoad;
     AsyncOperation loadingOperation;
     Slider progressBar;
     [SerializeField]private float progressValue;
@@ -18,6 +18,7 @@ public class LoadScene : MonoBehaviour
     public static LoadScene SceneManagement = null;
     public bool isLoading;
     public int scene;
+    public GameObject ButtonToScene;
     #endregion
 
     void Awake(){
@@ -51,23 +52,35 @@ public class LoadScene : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name=="Loading"){
             if(!isLoading){
+                ButtonToScene=GameObject.Find("DoneButton");
+                ButtonToScene.SetActive(false);
                 loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad);
                 isLoading=true;
             }
+            if(progressValue!=1){
+                //convertir el progreso a un valor entre 0 y 0,9
+                progressValue  = Mathf.Clamp01(loadingOperation.progress / 0.9f);
 
-            //convertir el progreso a un valor entre 0 y 0,9
-            progressValue  = Mathf.Clamp01(loadingOperation.progress / 0.9f);
+                //Mostrar el porcentaje de carga en texto
+                percentLoaded=GameObject.Find("LoadingText").GetComponent<Text>();
+                percentLoaded.text ="Cargando: "+ Mathf.Round(progressValue * 100) + "%";
+                
+                //Mostrar el progreso de la carga en el slider
+                progressBar=GameObject.Find("LoadingSlider").GetComponent<Slider>();
+                progressBar.value = progressValue ;
+            }
 
-            //Mostrar el porcentaje de carga en texto
-            percentLoaded=GameObject.Find("LoadingText").GetComponent<Text>();
-            percentLoaded.text ="Cargando: "+ Mathf.Round(progressValue * 100) + "%";
-            
-            //Mostrar el progreso de la carga en el slider
-            progressBar=GameObject.Find("LoadingSlider").GetComponent<Slider>();
-            progressBar.value = progressValue ;
+            if(sceneToLoad!="MainMenu" && !ButtonToScene.activeSelf){
+                loadingOperation.allowSceneActivation = false;
+                if(progressValue==1)ButtonToScene.SetActive(true);
+            }
 
             Debug.Log(progressValue);
         }
+    }
+
+    public void Done(){
+        loadingOperation.allowSceneActivation = true;
     }
     
 }

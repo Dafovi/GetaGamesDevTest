@@ -4,17 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class statistics : MonoBehaviour
 {
-    public Text racesPlayedText;
-    public Text racesWonText;
-    public Text recordText;
+    public Text TR_racesPlayedText;
+    public Text TR_racesWonText;
+    public Text TR_recordText;
+    public Text DR_racesPlayedText;
+    public Text DR_recordText;
     void Start()
     {
-        racesPlayedText.text="Carreras jugadas: "+ GameManager.instance.RacesPlayed;
-        racesWonText.text="Carreras ganadas: "+ GameManager.instance.RacesWon;
+        TR_racesPlayedText.text="Carreras jugadas: "+ GameManager.instance.RacesPlayed;
+        TR_racesWonText.text="Carreras ganadas: "+ GameManager.instance.RacesWon;
 
         if(GameManager.instance.Record!=0)
-        recordText.text="Carrera más rapida: "+ActualizarReloj(GameManager.instance.Record) +" segundos";
-        else recordText.text="Carrera más rapida: --:--";
+        TR_recordText.text="Carrera más rapida: "+ActualizarReloj(GameManager.instance.Record) +" segundos";
+        else TR_recordText.text="Carrera más rapida: --:--";
+
+        DR_racesPlayedText.text="Carreras jugadas: "+ GameManager.instance.EndlesRacesPlayed;
+        DR_recordText.text="Distancia máxima: "+GameManager.instance.MetersRecord.ToString("00")+"m";
     }
     public string ActualizarReloj(float tiempoEnSegundos){
         int minutos = 0;

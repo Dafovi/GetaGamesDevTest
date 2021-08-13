@@ -11,6 +11,7 @@ public class LapObject : MonoBehaviour
     public GameObject particles;
     public GameObject LastCheckPoint;
     private respawn respawn;
+    public GameObject TimerObject;
     
     void Start()
     {
@@ -46,7 +47,7 @@ public class LapObject : MonoBehaviour
     }
 
     IEnumerator ChangeScene(){
-        timer.gameObject.SetActive(false);
+        TimerObject.SetActive(false);
         PlayerPrefs.SetInt("racesPlayed",GameManager.instance.RacesPlayed+1);
 
         yield return new WaitForSeconds(5);

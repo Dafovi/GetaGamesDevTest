@@ -74,6 +74,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donut
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b121577100373491d839adcc51d30452, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b121577100373491d839adcc51d30452, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -350,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657696873877861810, guid: 87a6cea72ce7247a2814467dab442418, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 657696873877861810, guid: 87a6cea72ce7247a2814467dab442418, type: 3}
       propertyPath: m_LocalPosition.y
